@@ -59,3 +59,7 @@ class Maze:
 		if next.x == current.x + 1:
 			current.walls["right"] = False
 			next.walls["left"] = False
+
+	def create_entrance_exit(self):
+		self.grid[0][0].walls["left"] = False
+		self.grid[self.height - 1][self.width - 1].walls["right"] = False

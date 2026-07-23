@@ -4,7 +4,7 @@ import random
 class HuntAndKill:
 	def __init__(self,maze):
 		self.maze = maze
-	
+
 	def hunt(self):
 
 		for y in range(self.maze.height):
@@ -36,6 +36,6 @@ class HuntAndKill:
 				current = next
 			else :
 				current = self.hunt()
-				
+
 				if current is None:
 					break

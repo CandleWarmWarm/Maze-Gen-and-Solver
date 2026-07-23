@@ -1,18 +1,29 @@
 class AsciiDisplay:
 	def show(self, maze):
-		for y in range(maze.height):
-			line = ""
-			for x in range(maze.width):
-				line += "o---"
-			line += "o"
-			print(line)
-			row = ""
-			for x in range(maze.width):
-				row += "|   "
-			row += "|"
-			print(row)
-		line = ""
+		top = ""
 		for x in range(maze.width):
-			line += "o---"
-		line += "o"
-		print(line)
+			top += "o---"
+		top += "o"
+		print(top)
+
+		for y in range(maze.height):
+			middle = ""
+			bottom = "o"
+			for x in range(maze.width):
+				cell = maze.grid[y][x]
+				if x == 0 and y != 0:
+					middle += "|"
+				elif x == 0 and y == 0:
+					middle += " "
+				if cell.walls["right"]:
+					middle += "   |"
+				else:
+					middle += "    "
+			print(middle)
+			for x in range(maze.width):
+				cell = maze.grid[y][x]
+				if cell.walls["bottom"]:
+					bottom += "---o"
+				else:
+					bottom += "   o"
+			print(bottom)
